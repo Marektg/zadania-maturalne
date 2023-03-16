@@ -1,34 +1,35 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+
 import './App.css'
+import Powtorka from './Components/Powtorka'
+import Matura from './Components/Matura'
 
 function App() {
   const [count, setCount] = useState(0)
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+  const show = (type) = {
+    switch (type) {
+      case 'a': return (
+      <Powtorka />
+    );
+      case 'b': return (
+    <Matura /> >
+    );
+    default: return (<div></div>);
+}
+  };
+
+return (
+  <div className="App">
+
+    <div>
+      <h1>Witaj maturzysto.</h1>
+      <p>Znajdziesz tu zadania, które pomogą Ci przygotować się do egzaminu maturalnego z matematyki.</p>
+      <button>Zadania powtórzeniowe</button>
+      <button>Zadania maturalne</button>
     </div>
-  )
+  </div>
+)
 }
 
 export default App
